@@ -5,3 +5,18 @@ data_ingestion:
   source_URL: https://drive.google.com/uc?id=1Unwa3d7mZdIyd2zcFqRvwVPxqNcxbFzs
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
+
+data_preprocessing:
+  root_dir: artifacts/data_preprocessing
+  data_files:
+    train:
+      en: data/train.en
+      vi: data/train.vi
+    val:
+      en: data/tst2012.en
+      vi: data/tst2012.vi
+    test:
+      en: data/tst2013.en
+      vi: data/tst2013.vi
+
+

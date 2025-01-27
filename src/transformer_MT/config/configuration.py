@@ -1,7 +1,7 @@
 import os
 from src.transformer_MT.constants import *
 from src.transformer_MT.utils.common import read_yaml, create_directories
-from src.transformer_MT.entity import (DataIngestionConfig)
+from src.transformer_MT.entity import (DataIngestionConfig, DataPreprocessingConfig)
 
 class ConfigurationManager:
     def __init__(self, config_filepath=CONFIG_FILE_PATH, params_filepath=PARAMS_FILE_PATH):
@@ -22,4 +22,15 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
+        config = self.config.data_preprocessing
+        create_directories([config.root_dir])
+
+        data_preprocessing_config = DataPreprocessingConfig(
+            root_dir=config.root_dir,
+            data_files=config.data_files
+        )
+
+        return data_preprocessing_config
     
