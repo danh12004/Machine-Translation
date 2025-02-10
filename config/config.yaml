@@ -19,4 +19,12 @@ data_preprocessing:
       en: data/tst2013.en
       vi: data/tst2013.vi
 
+token_vocab_transform:
+  root_dir: artifacts/token_vocab_transform
 
+data_loader:
+  root_dir: artifacts/data_loader
+
+training:
+  root_dir: artifacts/training
+  

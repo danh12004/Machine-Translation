@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 from src.transformer_MT.config.configuration import ConfigurationManager
 from src.transformer_MT.components.data_preprocessing import DataPreprocessing
@@ -38,8 +37,5 @@ class DataPreprocessingTrainingPipeline:
         save_json(Path(data_preprocessing_config.root_dir) / 'val.json', val)
         save_json(Path(data_preprocessing_config.root_dir) / 'test.json', test)
 
-        # loaded_train = load_json(Path(data_preprocessing_config.root_dir) / 'train.json')
-        # loaded_val = load_json(Path(data_preprocessing_config.root_dir) / 'val.json')
-        # loaded_test = load_json(Path(data_preprocessing_config.root_dir) / 'test.json')
+        logger.info('Train, Test, Validation data saved successfully!')
 
-        
