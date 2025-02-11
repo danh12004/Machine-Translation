@@ -16,6 +16,7 @@ class Transformer(nn.Module):
 
         self.fc = nn.Linear(d_model, tgt_vocab_size).to(device)
         self.dropout = nn.Dropout(dropout)
+        self.device = device
 
     def generate_mask(self, src, tgt):
         device = src.device
@@ -29,8 +30,8 @@ class Transformer(nn.Module):
 
     def forward(self, src, tgt):
         src_mask, tgt_mask = self.generate_mask(src, tgt)
-        src_embedded = self.dropout(self.positional_encoding(self.encoder_embedding(src.long()).to(device)))
-        tgt_embedded = self.dropout(self.positional_encoding(self.decoder_embedding(tgt.long()).to(device)))
+        src_embedded = self.dropout(self.positional_encoding(self.encoder_embedding(src.long()).to(self.device)))
+        tgt_embedded = self.dropout(self.positional_encoding(self.decoder_embedding(tgt.long()).to(self.device)))
 
         enc_output = src_embedded
         for enc_layer in self.encoder_layers:

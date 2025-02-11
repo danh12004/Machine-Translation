@@ -14,7 +14,7 @@ Machine Translation is a project that translates text between two languages usin
     python -m spacy download en_core_web_sm xx_ent_wiki_sm
     ```
 
-3. Run the main script:
+## Run the main script:
     ```bash
     python main.py
     ```

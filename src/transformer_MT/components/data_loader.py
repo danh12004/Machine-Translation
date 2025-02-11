@@ -47,8 +47,16 @@ class MTDataLoader:
         return self.apply_text_transform(text, language)
 
     def create_text_transform(self):
-        for language in self.languages:
-            self.text_transform[language] = self.text_transform_func
+        self.text_transform = {
+            "en": self._text_transform_en,
+            "vi": self._text_transform_vi
+        }
+
+    def _text_transform_en(self, text):
+        return self.text_transform_func(text, "en")
+
+    def _text_transform_vi(self, text):
+        return self.text_transform_func(text, "vi")
             
     def collate_fn(self, batch):
         source_batch, source_length_batch, target_batch = [], [], []

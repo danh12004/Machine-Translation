@@ -2,7 +2,7 @@ import math
 import torch
 from torch import nn
 
-class MultiHeadAttention:
+class MultiHeadAttention(nn.Module):
     def __init__(self, d_model, num_heads):
         super().__init__()
         assert d_model % num_heads == 0, "d_model must be divisible by num_heads"
