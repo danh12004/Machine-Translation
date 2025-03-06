@@ -28,8 +28,8 @@ except Exception as e:
 STAGE_NAME = "Tokenizer Vocabulary Transform"
 try:
     logger.info(f">>>>>> stage {STAGE_NAME} start <<<<<<")
-    data_preprocessing = TokenVocabTransformTrainingPipeline()
-    data_preprocessing.main()
+    token_vocab_transform = TokenVocabTransformTrainingPipeline()
+    token_vocab_transform.main()
     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx===========x")
 except Exception as e:
     logger.exception(e)
@@ -38,8 +38,8 @@ except Exception as e:
 STAGE_NAME = "Data Loader"
 try:
     logger.info(f">>>>>> stage {STAGE_NAME} start <<<<<<")
-    data_preprocessing = DataLoaderTrainingPipeline()
-    data_preprocessing.main()
+    data_loader = DataLoaderTrainingPipeline()
+    data_loader.main()
     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx===========x")
 except Exception as e:
     logger.exception(e)
@@ -48,8 +48,8 @@ except Exception as e:
 STAGE_NAME = "Training"
 try:
     logger.info(f">>>>>> stage {STAGE_NAME} start <<<<<<")
-    data_preprocessing = TrainingPipeline()
-    data_preprocessing.main()
+    training = TrainingPipeline()
+    training.main()
     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx===========x")
 except Exception as e:
     logger.exception(e)
